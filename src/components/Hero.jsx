@@ -3,6 +3,7 @@ import Image5 from '../assets/image5.jfif';
 import Image2 from '../assets/image2.jfif';
 import Image3 from '../assets/image3.jfif';
 import Image4 from '../assets/image4.jfif';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = ({
   imageUrls = [
@@ -17,6 +18,7 @@ const Hero = ({
   onCtaClick = () => alert('Explore Projects clicked!')
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -52,7 +54,7 @@ const Hero = ({
           {subheading}
         </p>
         <button
-          onClick={onCtaClick}
+          onClick={() => {navigate('/projects')}}
           className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 inline-block"
         >
           {ctaText}
