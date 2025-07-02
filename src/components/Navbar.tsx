@@ -75,10 +75,10 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className='pb-4 '>
           <div className="md:hidden  px-4 pb-4 space-y-2 flex flex-col items-start justify-center gap-y-5 border-0 rounded-3xl bg-gray-50 w-full shadow-lg">
-            <p onClick={toggleMenu} className="block hover:text-teal-600 mt-5 ml-4 font-serif font-medium text-lg">Our Services</p>
-            <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">FAQs</p>
-            <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Testimonial</p>
-            <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Blogs</p>
+            <Link to='/'><p onClick={toggleMenu} className="block hover:text-teal-600 mt-5 ml-4 font-serif font-medium text-lg">Home</p></Link>
+           <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Our Services</p>
+            <Link to='/projects'><p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Projects</p></Link>
+            <Link to='/blog'><p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Blogs</p></Link>
           </div>
           <div>
             <Button
