@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Twitter, Globe, Mail } from 'lucide-react';
+import Navbar from '../components/Navbar';
 
 const defaultTeamMembers = [
   {
@@ -77,11 +78,10 @@ const Team = ({
   sectionSubtitle = "Our dedicated team of experts is the driving force behind every successful project, committed to building a better future."
 }) => {
   return (
-    // Main section container
-    // - py-16 lg:py-24: Responsive vertical padding.
-    // - bg-white: White background.
-    // - font-sans: Uses the default sans-serif font.
-    <section className="py-16 lg:py-24 bg-white font-sans">
+   
+    <>
+    <Navbar />
+    <section className="py-16 lg:py-32 bg-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -100,25 +100,10 @@ const Team = ({
         */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
-            // Individual Team Member Card
-            // - bg-gray-50: Light grey background for the card.
-            // - rounded-xl: Rounded corners.
-            // - shadow-lg: Soft shadow.
-            // - overflow-hidden: Ensures content/effects stay within bounds.
-            // - group: Allows applying styles to children on hover of the parent.
-            // - transform transition-all duration-300: Smooth transformations on hover.
-            // - hover:scale-[1.02] hover:shadow-2xl: Subtle lift and enhanced shadow on hover.
             <div
               key={index}
               className="bg-gray-50 rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
             >
-              {/* Team Member Image */}
-              {/*
-                - w-full h-64 md:h-72: Responsive height for the image.
-                - object-cover: Ensures the image covers the area, cropping if necessary.
-                - group-hover:scale-110 transition-transform duration-500: Zoom effect on hover.
-                - grayscale group-hover:grayscale-0: Image starts grayscale and becomes color on hover.
-              */}
               <div className="w-full h-64 md:h-72 overflow-hidden">
                 <img
                   className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
@@ -127,26 +112,22 @@ const Team = ({
                   onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400/a3a3a3/e2e8f0?text=Image+Not+Found'; }} // Fallback
                 />
               </div>
-
-              {/* Card Content Area */}
               <div className="p-6 text-center">
-                {/* Name */}
+                
                 <h3 className="text-2xl font-bold text-gray-900 mb-1 font-['Montserrat'] leading-tight">
                   {member.name}
                 </h3>
-                {/* Title */}
+                
                 <p className="text-teal-600 text-lg font-medium mb-4">
                   {member.title}
                 </p>
-                {/* Bio (optional) */}
                 {member.bio && (
                   <p className="text-gray-700 text-sm mb-6 line-clamp-3">
                     {member.bio}
                   </p>
                 )}
 
-                {/* Social Links */}
-                <div className="flex justify-center space-x-4 mt-auto"> {/* mt-auto pushes social links to bottom if bio is short */}
+                <div className="flex justify-center space-x-4 mt-auto">
                   {member.social.linkedin && (
                     <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors duration-200">
                       <Linkedin className="w-6 h-6" />
@@ -174,6 +155,7 @@ const Team = ({
         </div>
       </div>
     </section>
+    </>
   );
 };
 

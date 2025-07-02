@@ -111,7 +111,6 @@ const WhyChooseUs = ({
                 reason.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''
               }`}
             >
-              {/* Image Column */}
               <div className="lg:w-1/2 w-full">
                 <img
                   className="rounded-xl shadow-xl transform transition-transform duration-500 hover:scale-[1.01] object-cover w-full h-auto"
