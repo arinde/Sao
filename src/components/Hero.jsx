@@ -31,7 +31,7 @@ const Hero = ({
   return (
     
     <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Background Image Slider */}
+  
       {imageUrls.map((imageUrl, index) => (
         <div
           key={index} 

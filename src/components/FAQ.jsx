@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-// Importing Lucide React icons for the open/close indicators.
-// Make sure you have 'lucide-react' installed: npm install lucide-react
 import { ChevronDown } from 'lucide-react';
 
-// Data for your Frequently Asked Questions.
-// You can easily extend or modify this array.
 const defaultFaqs = [
   {
     question: "What types of civil engineering projects do you specialize in?",
@@ -32,29 +28,22 @@ const defaultFaqs = [
   }
 ];
 
-// React functional component for the FAQ section
-const App = ({
+const FAQ = ({
   faqs = defaultFaqs,
   sectionTitle = "Frequently Asked Questions",
   sectionSubtitle = "Find answers to common questions about our civil and construction engineering services."
 }) => {
-  // State to manage which FAQ item is currently open.
-  // Stores the index of the open item, or null if none are open.
+  
   const [openIndex, setOpenIndex] = useState(null);
 
-  // Function to toggle the open/close state of an FAQ item.
+
   const toggleFaq = (index) => {
     setOpenIndex(prevIndex => (prevIndex === index ? null : index));
   };
 
   return (
-    // Main section container
-    // - py-16 lg:py-24: Responsive vertical padding.
-    // - bg-white: White background.
-    // - font-sans: Uses the default sans-serif font.
     <section className="py-16 lg:py-24 bg-white font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
@@ -86,14 +75,6 @@ const App = ({
                   }`}
                 />
               </button>
-
-              {/* Answer Content */}
-              {/*
-                - Conditional rendering based on openIndex.
-                - max-h-0 and overflow-hidden for collapsing effect.
-                - transition-all duration-500 ease-in-out for smooth animation.
-                - p-6 pt-0: Padding for content, top padding is 0 when collapsed.
-              */}
               <div
                 id={`faq-answer-${index}`}
                 role="region"
@@ -114,4 +95,4 @@ const App = ({
   );
 };
 
-export default App;
+export default FAQ;

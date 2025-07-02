@@ -1,49 +1,46 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion'; // Import motion for animations
+import { Quote } from 'lucide-react';
 
-const defaultFaqs = [
+const defaultTestimonials = [
   {
-    question: "What types of civil engineering projects do you specialize in?",
-    answer: "We specialize in a broad range of civil engineering projects including road construction, bridge building, urban infrastructure development, water resource management, and geotechnical investigations. Our expertise spans from initial design to final execution."
+    quote: "Our experience with Sao Works on the new bridge project was exceptional. Their precision engineering and commitment to deadlines were truly impressive. A reliable partner for complex infrastructure.",
+    clientName: "Mr Prassana",
+    clientTitle: "GM Reliance Chemical Products Limited Agbara",
+    clientAvatarUrl: "https://placehold.co/100x100/e0e0e0/333?text=AB"
   },
   {
-    question: "How do you ensure the quality and safety of your construction projects?",
-    answer: "Quality and safety are paramount. We adhere to stringent international and local standards, implement rigorous quality control checks at every stage, and maintain a comprehensive safety program for all personnel and sites. Our commitment ensures durable and secure structures."
+    quote: "The industrial facility they built for us exceeded all expectations. The attention to detail, especially with the specialized furnace pit, demonstrated their deep understanding of industrial standards. Highly recommended!",
+    clientName: "Dr. Emeka Okoro",
+    clientTitle: "Operations Director, MegaCorp Industries",
+    clientAvatarUrl: "https://placehold.co/100x100/d0d0d0/333?text=EO"
   },
   {
-    question: "Do you offer sustainable and eco-friendly construction solutions?",
-    answer: "Absolutely. Sustainability is a core value. We integrate green building practices, utilize eco-friendly materials, and implement energy-efficient designs to minimize environmental impact and promote long-term ecological balance in our projects."
+    quote: "Their sustainable building approach for our commercial complex was truly innovative. Not only is the structure aesthetically pleasing, but its energy efficiency has also significantly reduced our operational costs.",
+    clientName: "Chief Bola Adeyemi",
+    clientTitle: "CEO, GreenFuture Holdings",
+    clientAvatarUrl: "https://placehold.co/100x100/c0c0c0/333?text=BA" // Placeholder for avatar
   },
   {
-    question: "Can you handle large-scale industrial construction, such as factory structures and furnace pits?",
-    answer: "Yes, we have extensive experience in large-scale industrial construction. Our capabilities include building robust factory structures, specialized industrial facilities, and complex installations like industry-standard furnace pits, tailored to specific operational requirements."
+    quote: "From initial consultation to project handover, SAO demonstrated unparalleled professionalism and technical expertise. They transformed our vision into a tangible reality with seamless execution.",
+    clientName: "Mr. Kunle Davies",
+    clientTitle: "Residential Developer",
+    clientAvatarUrl: "https://placehold.co/100x100/b0b0b0/333?text=KD" // Placeholder for avatar
   },
-  {
-    question: "What is your approach to client collaboration throughout a project?",
-    answer: "We adopt a client-centric partnership approach. From concept to completion, we maintain transparent communication, provide regular updates, and foster a collaborative environment to ensure your vision is realized precisely and efficiently."
-  },
-  {
-    question: "How can I request a consultation or a project quote?",
-    answer: "You can easily request a consultation or quote by visiting our 'Contact Us' page and filling out the inquiry form, or by calling us directly. Our team will get back to you promptly to discuss your project needs."
-  }
 ];
-
 const Testimonial = ({
-  faqs = defaultFaqs,
-  sectionTitle = "Frequently Asked Questions",
-  sectionSubtitle = "Find answers to common questions about our civil and construction engineering services."
+  testimonials = defaultTestimonials,
+  sectionTitle = "What Our Clients Say",
+  sectionSubtitle = "Hear directly from those who have experienced our commitment to excellence and innovation in civil and construction engineering."
 }) => {
   
-  const [openIndex, setOpenIndex] = useState(null);
-
-
-  const toggleFaq = (index) => {
-    setOpenIndex(prevIndex => (prevIndex === index ? null : index));
-  };
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <section className="py-16 lg:py-24 bg-white font-sans">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    // Main section container
+    <section className="py-16 lg:py-24 bg-gray-100 font-sans overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
@@ -53,42 +50,89 @@ const Testimonial = ({
           </p>
         </div>
 
-        {/* FAQ Accordion Items */}
-        <div className="space-y-6">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-xl shadow-lg overflow-hidden border border-gray-200"
-            >
-              {/* Question Button */}
-              <button
-                className="flex justify-between items-center w-full p-6 text-left font-semibold text-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-colors duration-200"
-                onClick={() => toggleFaq(index)}
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span>{faq.question}</span>
-                {/* Chevron icon rotates based on open state */}
-                <ChevronDown
-                  className={`w-6 h-6 text-gray-600 transform transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : 'rotate-0'
-                  }`}
-                />
-              </button>
+        {/* Testimonials Scroller Container */}
+        {/*
+          - overflow-hidden: Hides the content that is outside the visible area.
+          - relative: For positioning the absolute moving track inside.
+        */}
+        <div className="relative w-full overflow-hidden">
+          {/*
+            Motion div for the scrolling track.
+            - flex flex-nowrap: Ensures all cards stay in a single row.
+            - gap-8: Spacing between cards.
+            - w-max: Allows the container to be as wide as its content.
+            - animate: Defines the animation properties.
+              - x: Animates the horizontal position.
+                - from: "0%" (start at the beginning)
+                - to: "-100%" (move left by the width of one full set of testimonials)
+                  This creates the illusion of moving from left to right by shifting the content leftwards
+                  and then resetting to create a loop.
+            - transition: Defines the animation timing.
+              - repeat: Infinity: Makes the animation loop indefinitely.
+              - ease: "linear": Ensures a constant speed.
+              - duration: Adjust this value to control the speed of the scroll.
+                          A higher value means slower scroll.
+                          (e.g., 60 seconds for a very slow scroll of 3 sets of cards)
+          */}
+          <motion.div
+            className="flex flex-nowrap gap-8"
+            animate={{ x: ["0%", "-100%"] }} // Animate from 0% to -100% of its own width
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 60, // Adjust duration to control speed (higher = slower)
+            }}
+          >
+            {duplicatedTestimonials.map((testimonial, index) => (
+              // Individual Testimonial Card
+              // min-w-[300px] lg:min-w-[calc(33.333%-20px)] ensures cards have a minimum width
+              // and take up roughly 1/3rd of the container width on large screens,
+              // accounting for the gap.
               <div
-                id={`faq-answer-${index}`}
-                role="region"
-                aria-labelledby={`faq-question-${index}`}
-                className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                  openIndex === index ? 'max-h-screen opacity-100 p-6 pt-0' : 'max-h-0 opacity-0 p-0'
-                }`}
+                key={index} // Key needs to be unique if you have multiple identical sets
+                className="bg-white rounded-xl shadow-lg p-8 flex flex-col transform transition-all duration-300 hover:scale-[1.01] hover:shadow-xl min-w-[300px] md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.333px)]" /* Adjusted min-width for responsiveness and gap */
               >
-                <p className="text-gray-700 leading-relaxed">
-                  {faq.answer}
+                {/* Quote Icon */}
+                <div className="text-teal-600 mb-4">
+                  <Quote className="w-10 h-10 opacity-70" />
+                </div>
+
+                {/* Testimonial Quote */}
+                <p className="text-gray-800 text-lg italic mb-6 flex-grow leading-relaxed">
+                  "{testimonial.quote}"
                 </p>
+
+                {/* Client Info */}
+                <div className="flex items-center mt-4">
+                  {/* Client Avatar */}
+                  <img
+                    className="w-16 h-16 rounded-full object-cover mr-4 border-2 border-teal-600"
+                    src={testimonial.clientAvatarUrl}
+                    alt={testimonial.clientName}
+                    onError={(e) => { e.currentTarget.src = `https://placehold.co/100x100/e0e0e0/333?text=${testimonial.clientName.split(' ').map(n => n[0]).join('')}`; }} // Fallback with initials
+                  />
+                  <div>
+                    <p className="font-bold text-gray-900 text-lg">
+                      {testimonial.clientName}
+                    </p>
+                    <p className="text-gray-600 text-sm">
+                      {testimonial.clientTitle}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Optional Call to Action for the entire section */}
+        <div className="text-center mt-16">
+          <button
+            onClick={() => console.log("Contact for Testimonials clicked!")} // Example action
+            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
+          >
+            Read More Success Stories
+          </button>
         </div>
       </div>
     </section>

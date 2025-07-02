@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import {  motion } from 'framer-motion';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 function scrollWithOffset(el: HTMLElement) {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -20,19 +21,17 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl md:mx-auto md:px-4 px-3 sm:px-6 lg:px-8 flex md:justify-evenly justify-between items-center md:h-24 h-20">
         {/* Logo */}
         
-        <p>Sao works</p>
+        <Link to="/"><p>Sao works</p></Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6">
-          <p className="hover:text-blue-600 cursor-pointer">Our Services</p>
-          <p className="hover:text-blue-600 cursor-pointer">About Us</p>
-          <p className="hover:text-blue-600 cursor-pointer">Testimonials</p>
-          <p className="hover:text-blue-600 cursor-pointer">Blogs</p>
+          <Link to="/" ><p className="hover:text-teal-600 font-medium cursor-pointer">Home</p></Link>
+          <p className="hover:text-teal-600 font-medium cursor-pointer">Our Services</p>
+          <Link to="/projects"><p className="hover:text-teal-600 font-medium cursor-pointer">Projects</p></Link>
+          <Link to="/blog" ><p className="hover:text-teal-600 font-medium cursor-pointer">Blogs</p></Link>
           
         </div>
-
         <div 
-        
         className='hidden md:flex -mt-3'>
             <Button 
             whatsapp 
@@ -48,7 +47,7 @@ const Navbar: React.FC = () => {
           <div className="relative w-8 h-6 cursor-pointer">
             {/* Top bar */}
             <span
-              className={`absolute top-0 right-0 h-0.5 bg-blue-700 transition-all duration-300 ${
+              className={`absolute top-0 right-0 h-0.5 bg-teal-600 transition-all duration-300 ${
                 isOpen
                   ? 'rotate-45 top-2.5 left-0 right-0 w-6'
                   : 'w-3 ml-auto top-0.5 right-2'
@@ -56,13 +55,13 @@ const Navbar: React.FC = () => {
             />
             {/* Middle bar */}
             <span
-              className={`absolute top-2.5 left-0 h-0.5 bg-blue-700 transition-all duration-300 ${
+              className={`absolute top-2.5 left-0 h-0.5 bg-teal-600 transition-all duration-300 ${
                 isOpen ? 'opacity-0' : 'w-6 -top-2.5'
               }`}
             />
             {/* Bottom bar */}
             <span
-              className={`absolute bottom-0 left-0 h-0.5 bg-blue-700 transition-all duration-300 ${
+              className={`absolute bottom-0 left-0 h-0.5 bg-teal-600 transition-all duration-300 ${
                 isOpen
                   ? '-rotate-45 bottom-2.5 left-0 right-0 w-6'
                   : 'w-3 mr-auto top-4.5'
@@ -76,10 +75,10 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className='pb-4 '>
           <div className="md:hidden  px-4 pb-4 space-y-2 flex flex-col items-start justify-center gap-y-5 border-0 rounded-3xl bg-gray-50 w-full shadow-lg">
-            <p onClick={toggleMenu} className="block hover:text-blue-600 mt-5 ml-4 font-serif font-medium text-lg">Our Services</p>
-            <p onClick={toggleMenu} className="block hover:text-blue-600 font-serif ml-4 font-medium text-lg">FAQs</p>
-            <p onClick={toggleMenu} className="block hover:text-blue-600 font-serif ml-4 font-medium text-lg">Testimonial</p>
-            <p onClick={toggleMenu} className="block hover:text-blue-600 font-serif ml-4 font-medium text-lg">Blogs</p>
+            <p onClick={toggleMenu} className="block hover:text-teal-600 mt-5 ml-4 font-serif font-medium text-lg">Our Services</p>
+            <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">FAQs</p>
+            <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Testimonial</p>
+            <p onClick={toggleMenu} className="block hover:text-teal-600 font-serif ml-4 font-medium text-lg">Blogs</p>
           </div>
           <div>
             <Button

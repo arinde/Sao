@@ -1,22 +1,22 @@
 import Hero from '../components/Hero';
-import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Services from '../components/Services';
-import Projects from '../components/Projects';
+import Project from '../components/Project';
 import WhyChooseUs from '../components/WhyChooseUs';
 import OurCeo from '../components/OurCeo';
+import FAQ from '../components/FAQ';
 import Testimonial from '../components/Testimonial';
 
 const Home = () => {
     return (
         <div>
-            <Navbar />
             <Hero />
             <About />
             <Services />
-            <Projects />
+            <Project />
             <WhyChooseUs />
             <OurCeo />
+            <FAQ />
             <Testimonial />
         </div>
     );
