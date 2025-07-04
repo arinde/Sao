@@ -46,7 +46,6 @@ const Hero = ({
 
       <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
       <div className="relative z-20 text-white px-4 md:px-8 lg:px-16 max-w-4xl mx-auto">
-        {/* Main Headline */}
         <h1 className="font-['Montserrat'] text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
           {headline}
         </h1>
@@ -55,7 +54,7 @@ const Hero = ({
         </p>
         <button
           onClick={() => {navigate('/projects')}}
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 inline-block"
+          className="bg-lime-600 hover:bg-lime-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 inline-block"
         >
           {ctaText}
         </button>

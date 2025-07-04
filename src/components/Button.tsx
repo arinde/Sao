@@ -34,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const variantClasses: Record<ButtonVariants, string> = {
-    primary: "bg-teal-600 hover:bg-teal-700 text-white rounded-3xl shadow-2xl",
+    primary: "bg-lime-600 hover:bg-lime-700 text-white rounded-3xl shadow-2xl",
     secondary: "bg-black text-white rounded-lg",
     success: "bg-green-500 rounded-3xl hover:bg-green-700 text-white",
     danger: "bg-red-600 hover:bg-red-700 text-white",
