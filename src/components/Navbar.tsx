@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl md:mx-auto md:px-4 px-3 sm:px-6 lg:px-8 flex md:justify-evenly justify-between items-center md:h-24 h-20">
         {/* Logo */}
         
-        <Link to="/"><img src="/SaoLogo.png" alt="sao" width={180} height={180} /></Link>
+        <Link to="/"><img src="/SaoLogo.png" alt="sao" width={180} height={180} className="w-80 h-80" /></Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6">
