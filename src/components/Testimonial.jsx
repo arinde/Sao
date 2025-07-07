@@ -30,7 +30,7 @@ const defaultTestimonials = [
 ];
 const Testimonial = ({
   testimonials = defaultTestimonials,
-  sectionTitle = "What Our Clients Say",
+  sectionTitle = "Testimonials",
   sectionSubtitle = "Hear directly from those who have experienced our commitment to excellence and innovation in civil and construction engineering."
 }) => {
   
@@ -42,7 +42,7 @@ const Testimonial = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
@@ -70,14 +70,11 @@ const Testimonial = ({
                   <Quote className="w-10 h-10 opacity-70" />
                 </div>
 
-                {/* Testimonial Quote */}
                 <p className="text-gray-800 text-lg italic mb-6 flex-grow leading-relaxed">
                   "{testimonial.quote}"
                 </p>
 
-                {/* Client Info */}
                 <div className="flex items-center mt-4">
-                  {/* Client Avatar */}
                   <img
                     className="w-16 h-16 rounded-full object-cover mr-4 border-2 border-teal-600"
                     src={testimonial.clientAvatarUrl}
@@ -96,16 +93,6 @@ const Testimonial = ({
               </div>
             ))}
           </motion.div>
-        </div>
-
-        {/* Optional Call to Action for the entire section */}
-        <div className="text-center mt-16">
-          <button
-            onClick={() => console.log("Contact for Testimonials clicked!")} // Example action
-            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
-          >
-            Read More Success Stories
-          </button>
         </div>
       </div>
     </section>

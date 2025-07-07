@@ -18,15 +18,13 @@ const Navbar: React.FC = () => {
   return (
     <nav 
     className="bg-gray-100 text-black shadow-lg opacity-95 fixed z-50 w-full">
-      <div className="max-w-7xl md:mx-auto md:px-4 px-3 sm:px-6 lg:px-8 flex md:justify-evenly justify-between items-center md:h-24 h-20">
-        {/* Logo */}
-        
+      <div className="max-w-7xl md:mx-auto mx-5 md:px-4 px-3 sm:px-6 lg:px-8 flex md:justify-evenly justify-between items-center md:h-24 h-20">
         <Link to="/"><img src="/SaoLogo.png" alt="sao" className="w-28 h-16" /></Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6">
           <Link to="/" ><p className="hover:text-lime-600 font-medium cursor-pointer">Home</p></Link>
-          <p className="hover:text-lime-600 font-medium cursor-pointer">Our Services</p>
+          <a href='#services' className="hover:text-lime-600 font-medium cursor-pointer">Our Services</a>
           <Link to="/projects"><p className="hover:text-lime-600 font-medium cursor-pointer">Projects</p></Link>
           <Link to="/blog" ><p className="hover:text-lime-600 font-medium cursor-pointer">Blogs</p></Link>
           
@@ -35,8 +33,8 @@ const Navbar: React.FC = () => {
         className='hidden md:flex -mt-3'>
             <Button 
             whatsapp 
-            phone="2348168500993" 
-            message="Hello, i am _______. i want to trade a gift card!"
+            phone="2347064467278" 
+            message="Hello, i am _______. i want to get a quote for a ________ Construction!"
             variant="primary" 
             size="medium" 
             className='mt-3 mx-5 flex items-center gap-x-1'>Get a Quote <MoveUpRight className='w-4 font-bold' /></Button>
@@ -76,15 +74,15 @@ const Navbar: React.FC = () => {
         <div className='pb-4 '>
           <div className="md:hidden  px-4 pb-4 space-y-2 flex flex-col items-start justify-center gap-y-5 border-0 rounded-3xl bg-gray-50 w-full shadow-lg">
             <Link to='/'><p onClick={toggleMenu} className="block hover:text-lime-600 mt-5 ml-4 font-serif font-medium text-lg">Home</p></Link>
-           <p onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Our Services</p>
+           <a href='#services' onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Our Services</a>
             <Link to='/projects'><p onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Projects</p></Link>
             <Link to='/blog'><p onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Blogs</p></Link>
           </div>
           <div>
             <Button
             whatsapp 
-            phone="2348168500993" 
-            message="Hello, i am _______. i want to trade a gift card!"
+            phone="2347064467278" 
+            message="Hello, i am _______. i want to get a quote for a ________ Construction!"
             variant="primary" 
             size="medium" 
             className='mt-3 mx-5 md:hidden flex shadow-2xl items-center gap-x-1'>Get Started <MoveUpRight className='w-4 font-bold' /></Button>

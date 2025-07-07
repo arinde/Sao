@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-// Removed direct image imports.
-// Assuming images are served from the public/assets folder.
-// For example, if you have 'your-project/public/assets/image5.jfif',
-// you would reference it as '/assets/image5.jfif'.
-
 const Hero = ({
-  // Updated imageUrls to use public paths by default
   imageUrls = [
     '/image5.jfif',
     '/image2.jfif',
@@ -18,7 +12,7 @@ const Hero = ({
   headline = "Building Tomorrow's Infrastructure, Today.",
   subheading = "Precision Engineering, Sustainable Solutions, Unwavering Commitment.",
   ctaText = "Explore Our Projects",
-  onCtaClick = () => alert('Explore Projects clicked!') // This prop is overridden by direct navigate below
+  onCtaClick = () => alert('Explore Projects clicked!')
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
@@ -60,8 +54,7 @@ const Hero = ({
   }, [imageUrls.length]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Background Image Slider */}
+    <section className="relative min-h-[60vh] lg:min-h-screen flex items-center justify-center text-center overflow-hidden py-12 pt-28">
       {imageUrls.map((imageUrl, index) => (
         <div
           key={index}

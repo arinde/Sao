@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const OurCeo = ({
-  ceoImageUrl = 'https://placehold.co/400x400/a3a3a3/e2e8f0?text=CEO+Image', // Placeholder for CEO's image
-  ceoName = "Arinde Victor",
+  ceoImageUrl = 'https://placehold.co/400x400/a3a3a3/e2e8f0?text=CEO+Image', 
+  ceoName = "Engr Sao",
   ceoTitle = "CEO & Founder",
   ceoQuote = "“Building a sustainable future requires not just engineering prowess, but a deep commitment to our communities and the environment.”",
   ctaText = "Meet Our Entire Team",
@@ -15,7 +15,7 @@ const OurCeo = ({
   }
 
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 }); // Animate once when 30% of component is in view
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   // Variants for section header (h2 and p)
   const headerVariants = {
@@ -64,10 +64,7 @@ const OurCeo = ({
             Our vision is shaped by experience, innovation, and a passion for excellence.
           </p>
         </motion.div>
-
-        {/* CEO Profile Card */}
         <div className="bg-gray-50 rounded-xl shadow-xl overflow-hidden p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16">
-          {/* CEO Image */}
           <motion.div
             className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg border-4 border-teal-600"
             variants={imageVariants}

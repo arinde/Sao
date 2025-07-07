@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const variantClasses: Record<ButtonVariants, string> = {
     primary: "bg-lime-600 hover:bg-lime-700 text-white rounded-3xl shadow-2xl",
-    secondary: "bg-black text-white rounded-lg",
+    secondary: "text-white bg-teal-600 hover:bg-teal-700 rounded-full shadow-lg transition-colors duration-300 transform hover:scale-[1.02]",
     success: "bg-green-500 rounded-3xl hover:bg-green-700 text-white",
     danger: "bg-red-600 hover:bg-red-700 text-white",
     outline: "bg-transparent border-1 rounded-3xl border-green-600 text-green-600 hover:bg-green-600 hover:border-white"

@@ -86,7 +86,7 @@ const Project = ({
   };
 
   return (
-    <section ref={ref} className="py-16 lg:py-24 bg-white font-sans">
+    <section ref={ref} className="py-12 lg:py-16 bg-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -96,7 +96,7 @@ const Project = ({
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">

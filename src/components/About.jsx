@@ -45,46 +45,41 @@ const About = ({
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delay between each pillar animation
-        delayChildren: 0.4 // Delay before pillars start animating
+        staggerChildren: 0.2,
+        delayChildren: 0.4
       }
     }
   };
 
-  // Variants for individual pillar items (now sliding in from the right)
   const pillarItemVariants = {
-    hidden: { opacity: 0, x: 100 }, // Start off-screen to the right
+    hidden: { opacity: 0, x: 100 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
-  // Variants for the CTA button
   const ctaButtonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut", delay: 0.8 } }
   };
 
   return (
-    <section ref={ref} className="py-16 lg:py-24 bg-white font-sans">
+    <section id='about' ref={ref} className="py-12 lg:py-24 bg-white font-sans">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Section Header */}
         <motion.div
           className="text-center mb-12"
           variants={headerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat']">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat']">
             {headline}
           </h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-4 text-xl text-gray-600 font-sans font-medium max-w-3xl mx-auto">
             {introText}
           </p>
         </motion.div>
 
         <div className="lg:flex lg:items-center lg:gap-12">
-
-          {/* Image Column */}
           <motion.div
             className="lg:w-1/2 mb-8 lg:mb-0"
             variants={imageVariants}
@@ -140,7 +135,7 @@ const About = ({
             </motion.div>
 
             {/* Call to Action Button */}
-            <motion.div className="mt-10" variants={ctaButtonVariants}>
+            <motion.div className="mt-10 flex justify-start ml-12" variants={ctaButtonVariants}>
               <button
                 onClick={onCtaClick}
                 className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"

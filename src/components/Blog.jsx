@@ -58,7 +58,7 @@ const Blog = ({
   pageSubtitle = "Stay informed with our expert articles, industry trends, and company updates in civil and construction engineering."
 }) => {
   return (
-    <section className="py-16 lg:py-32 bg-gray-50 font-sans">
+    <section className="py-16 lg:py-32 bg-gray-50 font-sans pt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">

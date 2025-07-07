@@ -30,7 +30,7 @@ const defaultFaqs = [
 
 const FAQ = ({
   faqs = defaultFaqs,
-  sectionTitle = "Frequently Asked Questions",
+  sectionTitle = "FAQ's",
   sectionSubtitle = "Find answers to common questions about our civil and construction engineering services."
 }) => {
   
@@ -42,10 +42,10 @@ const FAQ = ({
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white font-sans">
+    <section id='faq' className="py-12 lg:py-24 bg-white font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
@@ -67,7 +67,7 @@ const FAQ = ({
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <span>{faq.question}</span>
+                <span className='text-sm md:text-md'>{faq.question}</span>
                 {/* Chevron icon rotates based on open state */}
                 <ChevronDown
                   className={`w-6 h-6 text-gray-600 transform transition-transform duration-300 ${
