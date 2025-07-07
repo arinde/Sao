@@ -1,8 +1,9 @@
-import React, { createElement } from 'react';
+import React from 'react';
+import { motion, useInView } from 'framer-motion'; // Import motion and useInView
 import { HardHat, DraftingCompass, Building, Lightbulb, Recycle, BriefcaseBusiness, ChevronRight, Factory } from 'lucide-react';
 
 const defaultServices = [
-   {
+  {
     icon: Factory,
     title: "Industrial Construction & Specialized Facilities",
     description: "Expertly building robust factory structures, specialized industrial facilities, and industry-standard installations like furnace pits to meet precise operational demands.",
@@ -44,98 +45,120 @@ const Services = ({
   services = defaultServices,
   sectionTitle = "Our Expertise: Building Beyond Expectation",
   sectionSubtitle = "Discover the comprehensive range of civil and construction engineering services we offer to deliver your vision.",
-  ctaText = "Get a Quote",
-  onCtaClick = () => console.log("Get a Quote clicked!")
 }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 }); // Animate once when 30% of component is in view
+
   const iconBackgroundColors = [
-    'bg-blue-600',   
-    'bg-purple-600', 
-    'bg-green-600',  
-    'bg-red-600',    
-    'bg-yellow-600', 
-    'bg-indigo-600', 
+    'bg-blue-600',
+    'bg-purple-600',
+    'bg-green-600',
+    'bg-red-600',
+    'bg-yellow-600',
+    'bg-indigo-600',
   ];
 
+  // Variants for section header (headline and introText)
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Variants for the grid container (staggers children)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15, // Delay between each card animation
+        delayChildren: 0.3 // Delay before cards start animating
+      }
+    }
+  };
+
+  // Variants for individual card items (alternating slide-in)
+  const cardVariants = (index) => ({
+    hidden: { opacity: 0, x: index % 2 === 0 ? -100 : 100 }, // Even index from left, odd from right
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  });
+
+  // Variants for the icon and its background to rotate continuously
+  const iconRotateVariants = {
+    rotate: {
+      rotate: 360, // Rotate 360 degrees
+      transition: {
+        repeat: Infinity, // Repeat indefinitely
+        ease: "linear",   // Linear speed for continuous rotation
+        duration: 10      // Duration of one full rotation (10 seconds)
+      }
+    }
+  };
+
   return (
-    <section className="py-16 lg:py-24 bg-gray-50 font-sans">
+    <section ref={ref} className="py-16 lg:py-24 bg-gray-50 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center mb-12">
+
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-12"
+          variants={headerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
             {sectionSubtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        {/*
-          - grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3: Responsive grid layout.
-          - gap-8: Spacing between grid items.
-        */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="relative bg-white rounded-xl shadow-lg p-8 overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              variants={cardVariants(index)} // Apply dynamic card variants
+              whileHover={{ scale: 1.03, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }} // Enhanced hover effect
             >
-              {/* Creative background element (e.g., a subtle diagonal shape) */}
               <div className="absolute inset-0 bg-gradient-to-br from-teal-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               <div className="absolute inset-0 bg-gray-100 opacity-100 group-hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
 
-
-              {/* Icon Container */}
-              <div
+              {/* Icon and its background with continuous rotation */}
+              <motion.div
                 className={`relative z-10 w-16 h-16 flex items-center justify-center text-white rounded-full mb-6 transform transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 ${iconBackgroundColors[index % iconBackgroundColors.length]}`}
+                variants={iconRotateVariants}
+                animate={isInView ? "rotate" : {}} // Apply the continuous rotation animation only when in view
               >
-                {createElement(service.icon, { className: 'w-8 h-8' })}
-              </div>
+                {React.createElement(service.icon, { className: 'w-8 h-8' })}
+              </motion.div>
 
-              {/* Service Title */}
-              {/*
-                - relative z-10: Ensures text is above background effects.
-                - text-2xl font-bold text-gray-900: Styling for the title.
-                - mb-3: Margin below the title.
-              */}
               <h3 className="relative z-10 text-2xl font-bold text-gray-900 mb-3">
                 {service.title}
               </h3>
 
-              {/* Service Description */}
-              {/*
-                - relative z-10: Ensures text is above background effects.
-                - text-gray-700: Text color.
-                - mb-6: Margin below description.
-              */}
               <p className="relative z-10 text-gray-700 mb-6">
                 {service.description}
               </p>
 
-              {/* Learn More Link (Optional) */}
               {service.link && (
                 <a
                   href={service.link}
                   className="relative z-10 inline-flex items-center text-teal-600 font-semibold hover:text-teal-800 transition-colors duration-300"
                 >
                   Learn More
-                  {/* Right arrow icon */}
                   <ChevronRight className="w-5 h-5 ml-1 transform transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        {/* Optional Call to Action for the entire section */}
-        <div className="text-center mt-16">
-          <button
-            onClick={onCtaClick}
-            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
-          >
-            {ctaText}
-          </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

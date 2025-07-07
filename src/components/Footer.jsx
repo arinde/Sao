@@ -1,91 +1,153 @@
 import React from 'react';
+import { motion } from 'framer-motion'; // Import motion
 import { Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  // Variants for the main footer container
+  const footerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.15, // Stagger children (the columns)
+        delayChildren: 0.2 // Delay before children start animating
+      }
+    }
+  };
+
+  // Variants for individual columns within the footer
+  const columnVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  // Variants for individual link/icon items within columns
+  const linkItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  };
+
   return (
-    <footer className="bg-gray-900 text-gray-300 py-16 lg:py-20 font-sans">
+    <motion.footer
+      className="bg-gray-900 text-gray-300 py-16 lg:py-20 font-sans"
+      variants={footerVariants}
+      initial="hidden"
+      whileInView="visible" // Animate when the component enters the viewport
+      viewport={{ once: true, amount: 0.2 }} // Trigger once when 20% of the component is visible
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
 
-          <div className="col-span-1 lg:col-span-1">
+          {/* Company Info Column */}
+          <motion.div className="col-span-1 lg:col-span-1" variants={columnVariants}>
             <h3 className="text-3xl font-extrabold text-white mb-4 font-['Montserrat']">
               Sao Works Nig Ltd.
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Building the future, one foundation at a time. Precision, innovation, and unwavering commitment to excellence in every project.
             </p>
-        
-            <div className="flex space-x-4 mt-6">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-500 transition-colors duration-200">
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors duration-200">
-                <Facebook className="w-6 h-6" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors duration-200">
-                <Instagram className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
 
-          <div>
+            {/* Social Media Icons */}
+            <div className="flex space-x-4 mt-6">
+              <motion.a
+                href="#" target="_blank" rel="noopener noreferrer"
+                className="text-gray-400 hover:text-teal-500 transition-colors duration-200"
+                whileHover={{ scale: 1.1, rotate: 5 }} // Subtle rotate on hover
+                whileTap={{ scale: 0.9 }}
+              >
+                <Linkedin className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="#" target="_blank" rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Twitter className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="#" target="_blank" rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-600 transition-colors duration-200"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Facebook className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="#" target="_blank" rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pink-500 transition-colors duration-200"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Instagram className="w-6 h-6" />
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* Quick Links Column */}
+          <motion.div variants={columnVariants}>
             <h4 className="text-xl font-semibold text-white mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Home</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">About Us</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Services</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Projects</a></li>
-              <Link to="/team"><li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Team</a></li></Link>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">FAQ</a></li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Home</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">About Us</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Services</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Projects</a></motion.li>
+              <motion.li variants={linkItemVariants}><Link to="/team" className="hover:text-teal-500 transition-colors duration-200">Team</Link></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">FAQ</a></motion.li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Services Overview */}
-          <div>
+          {/* Services Overview Column */}
+          <motion.div variants={columnVariants}>
             <h4 className="text-xl font-semibold text-white mb-6">Our Services</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Infrastructure Development</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Commercial Construction</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Industrial Facilities</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Engineering & Design</a></li>
-              <li><a href="#" className="hover:text-teal-500 transition-colors duration-200">Sustainable Building</a></li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Infrastructure Development</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Commercial Construction</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Industrial Facilities</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Engineering & Design</a></motion.li>
+              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Sustainable Building</a></motion.li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Contact Information */}
-          <div>
+          {/* Contact Information Column */}
+          <motion.div variants={columnVariants}>
             <h4 className="text-xl font-semibold text-white mb-6">Contact Us</h4>
             <address className="not-italic space-y-3">
-              <p className="flex items-start">
+              <motion.p variants={linkItemVariants} className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-teal-500 flex-shrink-0 mt-1" />
                 <span>123 Construction Blvd, <br /> Cityville, State, 12345, Nigeria</span>
-              </p>
-              <p className="flex items-center">
+              </motion.p>
+              <motion.p variants={linkItemVariants} className="flex items-center">
                 <Phone className="w-5 h-5 mr-3 text-teal-500" />
                 <a href="tel:+2348012345678" className="hover:text-teal-500 transition-colors duration-200">+234 801 234 5678</a>
-              </p>
-              <p className="flex items-center">
+              </motion.p>
+              <motion.p variants={linkItemVariants} className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-teal-500" />
                 <a href="mailto:info@yourcompany.com" className="hover:text-teal-500 transition-colors duration-200">info@yourcompany.com</a>
-              </p>
+              </motion.p>
             </address>
-          </div>
+          </motion.div>
         </div>
 
         {/* Copyright and Bottom Links */}
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm">
+        <motion.div
+          className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.5 } }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <p>&copy; {new Date().getFullYear()} Sao Works Nig Ltd. All rights reserved.</p>
           <div className="flex justify-center space-x-6 mt-4">
             <a href="#" className="hover:text-teal-500 transition-colors duration-200">Privacy Policy</a>
             <a href="#" className="hover:text-teal-500 transition-colors duration-200">Terms of Service</a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

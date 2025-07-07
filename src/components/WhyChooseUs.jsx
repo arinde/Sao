@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion'; 
+import { motion, useInView } from 'framer-motion';
 import { Award, ShieldCheck, Handshake, Leaf, Users, Factory, CalendarCheck } from 'lucide-react';
 
 const defaultReasons = [
@@ -7,7 +7,7 @@ const defaultReasons = [
     imageUrl: 'https://placehold.co/800x500/0d9488/f1f5f9?text=Expert+Team',
     title: "Unrivaled Expertise & Experience",
     description: "Our team comprises highly skilled engineers, seasoned project managers, and dedicated craftsmen with decades of collective experience in delivering complex civil and construction projects. We bring unparalleled knowledge to every challenge.",
-    imagePosition: 'left' 
+    imagePosition: 'left'
   },
   {
     imageUrl: 'https://placehold.co/800x500/1e40af/bfdbfe?text=Innovative+Solutions',
@@ -46,13 +46,13 @@ const stats = [
 const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }) => {
   const [count, setCount] = useState(from);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 }); // Keeping useInView for the counter itself
 
   useEffect(() => {
     if (isInView) {
       let start = from;
       const end = to;
-      const increment = (end - start) / (duration * 60);
+      const increment = (end - start) / (duration * 60); // 60 frames per second
 
       const timer = setInterval(() => {
         start += increment;
@@ -61,7 +61,7 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }) => {
           clearInterval(timer);
         }
         setCount(Math.floor(start));
-      }, 1000 / 60);
+      }, 1000 / 60); // Update 60 times per second
 
       return () => clearInterval(timer);
     }
@@ -77,41 +77,127 @@ const WhyChooseUs = ({
   ctaText = "Get a Free Consultation",
   onCtaClick = () => console.log("Get a Free Consultation clicked!")
 }) => {
+  // Removed the top-level ref and isInView for the whole section.
+  // Animations will now be triggered by whileInView on individual motion.divs.
+
+  // Variants for section header
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Variants for trust badges container
+  const badgesContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15, // Delay between each badge
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  // Variants for individual trust badges
+  const badgeItemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  // Variants for reasons container (staggers children)
+  const reasonsContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25, // Slightly increased stagger
+        delayChildren: 0.6 // Increased delay
+      }
+    }
+  };
+
+  // Variants for individual reason blocks (image and text)
+  const reasonBlockVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } } // Increased duration
+  };
+
+  // Variants for animated counters section
+  const countersSectionVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 1.0, ease: "easeOut", delay: 0.7 } } // Increased duration and delay
+  };
+
+  // Variants for CTA button
+  const ctaButtonVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut", delay: 0.9 } } // Increased duration and delay
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-gray-50 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-12"
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible" // Trigger animation when in view
+          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+        >
           <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
             {sectionSubtitle}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-16 mb-20">
+        {/* Core Strengths / Trust Badges Section */}
+        <motion.div
+          className="mt-16 mb-20"
+          variants={badgesContainerVariants}
+          initial="hidden"
+          whileInView="visible" // Trigger animation when in view
+          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+        >
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-8 font-['Montserrat']">
             Our Core Strengths
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {trustBadges.map((badge, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-105">
+              <motion.div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-105"
+                variants={badgeItemVariants} // Apply badge item variants
+                whileHover={{ scale: 1.08 }}
+              >
                 {React.createElement(badge.icon, { className: 'w-12 h-12 text-teal-600 mb-4' })}
                 <p className="text-lg font-semibold text-gray-800">{badge.text}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="space-y-20 lg:space-y-28">
+        {/* Reasons Section */}
+        <motion.div
+          className="space-y-20 lg:space-y-28"
+          variants={reasonsContainerVariants} // Apply reasons container variants
+          initial="hidden"
+          whileInView="visible" // Trigger animation when in view
+          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+        >
           {reasons.map((reason, index) => (
-            <div
+            <motion.div
               key={index}
               className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-16 ${
                 reason.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''
               }`}
+              variants={reasonBlockVariants} // Apply reason block variants
             >
-              <div className="lg:w-1/2 w-full">
+              <div
+                className="lg:w-1/2 w-full"
+              >
                 <img
                   className="rounded-xl shadow-xl transform transition-transform duration-500 hover:scale-[1.01] object-cover w-full h-auto"
                   src={reason.imageUrl}
@@ -129,12 +215,18 @@ const WhyChooseUs = ({
                   {reason.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Animated Counters Section */}
-        <div className="mt-20 lg:mt-28 bg-teal-700 text-white p-12 rounded-xl shadow-xl">
+        {/* Animated Counters Section - Animated but numbers untouched */}
+        <motion.div
+          className="mt-20 lg:mt-28 bg-teal-800 text-white p-12 rounded-xl shadow-xl"
+          variants={countersSectionVariants} // Apply counters section variants
+          initial="hidden"
+          whileInView="visible" // Trigger animation when in view
+          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+        >
           <h3 className="text-3xl font-bold text-center mb-10 font-['Montserrat']">
             Our Achievements at a Glance
           </h3>
@@ -148,18 +240,25 @@ const WhyChooseUs = ({
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-
-        {/* Optional Call to Action for the entire section */}
-        <div className="text-center mt-16">
+        {/* CTA Button */}
+        <motion.div
+          className="text-center mt-16"
+          variants={ctaButtonVariants} // Apply CTA button variants
+          initial="hidden"
+          whileInView="visible" // Trigger animation when in view
+          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+        >
           <button
             onClick={onCtaClick}
             className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {ctaText}
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

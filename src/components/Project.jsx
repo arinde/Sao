@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion'; // Import motion and useInView
 import { MapPin, CalendarDays, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
 const defaultProjects = [
   {
     imageUrl: 'https://placehold.co/600x400/94a3b8/e2e8f0?text=Grand+Bridge+Project',
@@ -8,7 +10,6 @@ const defaultProjects = [
     location: "Lagos, Nigeria",
     year: 2023,
     description: "A pivotal infrastructure project connecting key urban areas, designed to enhance traffic flow and promote regional development.",
-    detailsLink: "#",
     status: "ongoing"
   },
   {
@@ -17,7 +18,6 @@ const defaultProjects = [
     location: "Abuja, Nigeria",
     year: 2022,
     description: "Construction of a state-of-the-art commercial complex featuring sustainable design and modern amenities for leading businesses.",
-    detailsLink: "#",
     status: "completed"
   },
   {
@@ -26,7 +26,6 @@ const defaultProjects = [
     location: "Ogun State, Nigeria",
     year: 2024,
     description: "Expansive industrial facility project, including specialized foundations and an advanced furnace pit, built to rigorous international standards.",
-    detailsLink: "#",
     status: "ongoing"
   },
   {
@@ -35,13 +34,13 @@ const defaultProjects = [
     location: "Ibadan, Nigeria",
     year: 2023,
     description: "Development of an eco-friendly residential community featuring sustainable materials and energy-efficient designs.",
-    detailsLink: "#",
+
     status: "completed"
   },
 ];
 
 const Project = ({
-  projects = defaultProjects, 
+  projects = defaultProjects,
   sectionTitle = "Our Latest Projects",
   sectionSubtitle = "A glimpse into our recent engineering marvels.",
   ctaText = "View All Projects",
@@ -53,24 +52,71 @@ const Project = ({
     navigate('/projects');
   }
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 }); // Animate once when 30% of component is in view
+
+  // Variants for section header (headline and introText)
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.0, ease: "easeOut" } } // Increased duration for smoother slide
+  };
+
+  // Variants for the grid container (staggers children)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25, // Slightly increased stagger for more noticeable individual entry
+        delayChildren: 0.4 // Increased delay before cards start animating
+      }
+    }
+  };
+
+  // Variants for individual card items (fade in and slide up)
+  const cardVariants = {
+    hidden: { opacity: 0, y: 70 }, // Increased y for a more pronounced slide up
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } // Increased duration for smoother fade/slide
+  };
+
+  // Variants for the CTA button
+  const ctaButtonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut", delay: 0.3 } } // Increased duration and delay
+  };
+
   return (
-    <section className="py-16 lg:py-24 bg-white font-sans">
+    <section ref={ref} className="py-16 lg:py-24 bg-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center mb-12">
+
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-12"
+          variants={headerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
             {sectionSubtitle}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {projectsToDisplay.map((project, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-gray-50 rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              variants={cardVariants} // Apply item variants to each card
+              whileHover={{ scale: 1.03, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }} // Enhanced hover effect
             >
               <div className="w-full h-64 md:h-72 overflow-hidden">
                 <img
@@ -100,28 +146,27 @@ const Project = ({
                 <p className="text-gray-700 mb-6 line-clamp-3">
                   {project.description}
                 </p>
-
-                {project.detailsLink && (
-                  <a
-                    href={project.detailsLink}
-                    className="inline-flex items-center text-teal-600 font-semibold hover:text-teal-800 transition-colors duration-300"
-                  >
-                    View Details
-                    <ExternalLink className="w-5 h-5 ml-1 transform transition-transform duration-300 group-hover:translate-x-1" />
-                  </a>
-                )}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-        <div className="text-center mt-16">
+        </motion.div>
+
+        {/* Call to Action Button */}
+        <motion.div
+          className="text-center mt-16"
+          variants={ctaButtonVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <button
             onClick={handleCTAClick}
             className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {ctaText}
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

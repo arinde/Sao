@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // Import motion for animations
+import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
 const defaultTestimonials = [
@@ -19,13 +19,13 @@ const defaultTestimonials = [
     quote: "Their sustainable building approach for our commercial complex was truly innovative. Not only is the structure aesthetically pleasing, but its energy efficiency has also significantly reduced our operational costs.",
     clientName: "Chief Bola Adeyemi",
     clientTitle: "CEO, GreenFuture Holdings",
-    clientAvatarUrl: "https://placehold.co/100x100/c0c0c0/333?text=BA" // Placeholder for avatar
+    clientAvatarUrl: "https://placehold.co/100x100/c0c0c0/333?text=BA"
   },
   {
     quote: "From initial consultation to project handover, SAO demonstrated unparalleled professionalism and technical expertise. They transformed our vision into a tangible reality with seamless execution.",
     clientName: "Mr. Kunle Davies",
     clientTitle: "Residential Developer",
-    clientAvatarUrl: "https://placehold.co/100x100/b0b0b0/333?text=KD" // Placeholder for avatar
+    clientAvatarUrl: "https://placehold.co/100x100/b0b0b0/333?text=KD"
   },
 ];
 const Testimonial = ({
@@ -50,49 +50,22 @@ const Testimonial = ({
           </p>
         </div>
 
-        {/* Testimonials Scroller Container */}
-        {/*
-          - overflow-hidden: Hides the content that is outside the visible area.
-          - relative: For positioning the absolute moving track inside.
-        */}
         <div className="relative w-full overflow-hidden">
-          {/*
-            Motion div for the scrolling track.
-            - flex flex-nowrap: Ensures all cards stay in a single row.
-            - gap-8: Spacing between cards.
-            - w-max: Allows the container to be as wide as its content.
-            - animate: Defines the animation properties.
-              - x: Animates the horizontal position.
-                - from: "0%" (start at the beginning)
-                - to: "-100%" (move left by the width of one full set of testimonials)
-                  This creates the illusion of moving from left to right by shifting the content leftwards
-                  and then resetting to create a loop.
-            - transition: Defines the animation timing.
-              - repeat: Infinity: Makes the animation loop indefinitely.
-              - ease: "linear": Ensures a constant speed.
-              - duration: Adjust this value to control the speed of the scroll.
-                          A higher value means slower scroll.
-                          (e.g., 60 seconds for a very slow scroll of 3 sets of cards)
-          */}
           <motion.div
             className="flex flex-nowrap gap-8"
-            animate={{ x: ["0%", "-100%"] }} // Animate from 0% to -100% of its own width
+            animate={{ x: ["0%", "-100%"] }} 
             transition={{
               repeat: Infinity,
               ease: "linear",
-              duration: 60, // Adjust duration to control speed (higher = slower)
+              duration: 40,
             }}
           >
             {duplicatedTestimonials.map((testimonial, index) => (
-              // Individual Testimonial Card
-              // min-w-[300px] lg:min-w-[calc(33.333%-20px)] ensures cards have a minimum width
-              // and take up roughly 1/3rd of the container width on large screens,
-              // accounting for the gap.
               <div
-                key={index} // Key needs to be unique if you have multiple identical sets
+                key={index}
                 className="bg-white rounded-xl shadow-lg p-8 flex flex-col transform transition-all duration-300 hover:scale-[1.01] hover:shadow-xl min-w-[300px] md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.333px)]" /* Adjusted min-width for responsiveness and gap */
               >
-                {/* Quote Icon */}
+                
                 <div className="text-teal-600 mb-4">
                   <Quote className="w-10 h-10 opacity-70" />
                 </div>

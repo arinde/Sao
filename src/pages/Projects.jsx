@@ -1,14 +1,10 @@
 import { ExternalLink, MapPin, CalendarDays, SquareActivity } from 'lucide-react';
-import Image5 from '../assets/image5.jfif';
-import Image2 from '../assets/image2.jfif';
-import Image3 from '../assets/image3.jfif';
-import Image4 from '../assets/image4.jfif';
 import React, { useState } from 'react';
 
 
 const defaultProjects = [
   {
-    imageUrl: Image2,
+    imageUrl: '/image2.jfif',
     title: "Coastal Landmark Bridge",
     location: "Lagos, Nigeria",
     year: 2023,
@@ -18,7 +14,7 @@ const defaultProjects = [
     status: "ongoing" 
   },
   {
-    imageUrl: Image3,
+    imageUrl: '/image3.jfif',
     title: "Apex Corporate Towers",
     location: "Abuja, Nigeria",
     year: 2022,
@@ -28,7 +24,7 @@ const defaultProjects = [
     status: "completed" 
   },
   {
-    imageUrl: Image4,
+    imageUrl: '/image4.jfif',
     title: "Mega-Factory Expansion",
     location: "Ogun State, Nigeria",
     year: 2024,
@@ -38,7 +34,7 @@ const defaultProjects = [
     status: "ongoing"
   },
   {
-    imageUrl: Image5,
+    imageUrl: '/image5.jfif',
     title: "Green Harmony Residences",
     location: "Ibadan, Nigeria",
     year: 2023,
@@ -48,7 +44,7 @@ const defaultProjects = [
     status: "completed"
   },
   {
-    imageUrl: Image2,
+    imageUrl: '/image2.jfif',
     title: "Urban Flood Defense System",
     location: "Port Harcourt, Nigeria",
     year: 2021,
@@ -58,7 +54,7 @@ const defaultProjects = [
     status: "ongoing"
   },
   {
-    imageUrl: Image5,
+    imageUrl: '/image5.jfif',
     title: "National Highway Upgrade",
     location: "Across Nigeria",
     year: 2020,
@@ -69,7 +65,7 @@ const defaultProjects = [
   },
   
   {
-    imageUrl: Image3, 
+    imageUrl: '/image2.jfif', 
     title: "International Airport Terminal",
     location: "Lagos, Nigeria",
     year: 2025,
@@ -79,7 +75,7 @@ const defaultProjects = [
     status: "ongoing"
   },
   {
-    imageUrl: Image4, 
+    imageUrl: '/image4.jfif', 
     title: "Solar Power Plant Installation",
     location: "Kano, Nigeria",
     year: 2024,
