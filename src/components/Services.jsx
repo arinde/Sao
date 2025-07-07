@@ -61,16 +61,16 @@ const Services = ({
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
-  // Variants for individual card items (all coming in from the left, with staggered delay)
+  // Variants for individual card items (now all coming in from the top, with staggered delay)
   const cardVariants = {
-    hidden: { opacity: 0, x: -100 }, // All cards start off-screen to the left
+    hidden: { opacity: 0, y: -100 }, // All cards start off-screen from the top
     visible: (index) => ({ // Now accepts an index to calculate delay
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.7, // Slightly decreased duration for a quicker fade-in
         ease: "easeOut",
-        delay: index * 0.15 // Staggered delay for each card
+        delay: index * 0.08 // Decreased staggered delay for faster successive appearance
       }
     })
   };
