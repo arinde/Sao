@@ -74,7 +74,7 @@ const About = ({
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat']">
             {headline}
           </h2>
-          <p className="mt-4 text-xl text-gray-600 font-sans font-medium max-w-3xl mx-auto">
+          <p className="mt-4 text-xl text-gray-600 font-sans max-w-3xl mx-auto">
             {introText}
           </p>
         </motion.div>
@@ -135,12 +135,12 @@ const About = ({
             </motion.div>
 
             {/* Call to Action Button */}
-            <motion.div className="mt-10 flex justify-start ml-12" variants={ctaButtonVariants}>
+            <motion.div className="mt-10 flex justify-start ml-16" variants={ctaButtonVariants}>
               <button
                 onClick={onCtaClick}
                 className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whilehover={{ scale: 1.05 }}
+                whiletap={{ scale: 0.95 }}
               >
                 {ctaText}
               </button>

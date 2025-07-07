@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Award, ShieldCheck, Handshake, Leaf, Users, Factory, CalendarCheck } from 'lucide-react';
 import Button from './Button'
+import { useInView as useScrollInView } from 'react-intersection-observer'
+import confetti from 'canvas-confetti'
 
 const defaultReasons = [
   {
@@ -125,6 +127,37 @@ const WhyChooseUs = ({
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut", delay: 0.9 } } 
   };
 
+  const { ref, inView } = useScrollInView ({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  useEffect(() =>{
+    if (inView) {
+      const duration = 6000;
+      const animationEnd = Date.now() + duration;
+
+      const interval = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0){
+          clearInterval(interval);
+          return;
+        }
+
+        confetti({
+        particleCount: 50,
+        startVelocity: 30,
+        spread: 360,
+        origin: { 
+          x: Math.random(),
+          y: Math.random() * 0.5
+        },
+        zIndex: 9999,
+      });
+      }, 250)
+    }
+  }, [inView])
+
   return (
     <section className="py-16 lg:py-24 bg-gray-50 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,26 +177,25 @@ const WhyChooseUs = ({
           </p>
         </motion.div>
 
-        {/* Core Strengths / Trust Badges Section */}
         <motion.div
           className="mt-16 mb-20"
           variants={badgesContainerVariants}
           initial="hidden"
-          whileInView="visible" // Trigger animation when in view
-          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8 font-['Montserrat']">
             Our Core Strengths
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {trustBadges.map((badge, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-105"
-                variants={badgeItemVariants} // Apply badge item variants
+                className="bg-white md:p-6 p-2 rounded-xl shadow-md flex flex-col items-center justify-center transform transition-transform duration-300 hover:scale-105"
+                variants={badgeItemVariants}
                 whileHover={{ scale: 1.08 }}
               >
-                {React.createElement(badge.icon, { className: 'w-12 h-12 text-teal-600 mb-4' })}
+                {React.createElement(badge.icon, { className: 'md:w-12 md:h-12 h-10 w-10 text-teal-600 mb-3 md:mb-4' })}
                 <p className="text-lg font-semibold text-gray-800">{badge.text}</p>
               </motion.div>
             ))}
@@ -211,15 +243,15 @@ const WhyChooseUs = ({
 
         <motion.div
           className="mt-20 lg:mt-28 bg-teal-800 text-white p-12 rounded-xl shadow-xl"
-          variants={countersSectionVariants} // Apply counters section variants
+          variants={countersSectionVariants} 
           initial="hidden"
-          whileInView="visible" // Trigger animation when in view
-          viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of element is in view
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
           <h3 className="text-3xl font-bold text-center mb-10 font-['Montserrat']">
             Our Achievements at a Glance
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center" ref={ref}>
             {stats.map((stat, index) => (
               <div key={index}>
                 <p className="text-5xl font-extrabold mb-2 font-['Montserrat']">

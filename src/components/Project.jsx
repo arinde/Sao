@@ -161,8 +161,8 @@ const Project = ({
           <button
             onClick={handleCTAClick}
             className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whilehover={{ scale: 1.05 }}
+            whiletap={{ scale: 0.95 }}
           >
             {ctaText}
           </button>

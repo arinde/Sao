@@ -48,7 +48,7 @@ const FAQ = ({
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl font-['Montserrat'] leading-tight">
             {sectionTitle}
           </h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-4 text-md text-gray-600 max-w-3xl mx-auto">
             {sectionSubtitle}
           </p>
         </div>

@@ -17,9 +17,9 @@ const Navbar: React.FC = () => {
 
   return (
     <nav 
-    className="bg-gray-100 text-black shadow-lg opacity-95 fixed z-50 w-full">
+    className="bg-gray-50 text-black shadow-lg opacity-95 fixed z-50 w-full">
       <div className="max-w-7xl md:mx-auto mx-5 md:px-4 px-3 sm:px-6 lg:px-8 flex md:justify-evenly justify-between items-center md:h-24 h-20">
-        <Link to="/"><img src="/SaoLogo.png" alt="sao" className="w-28 h-16" /></Link>
+        <Link to="/"><img src="/SaoLogo.png" alt="sao" className="md:w-28 md:h-16 w-24 h-12" /></Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6">
@@ -45,24 +45,24 @@ const Navbar: React.FC = () => {
           <div className="relative w-8 h-6 cursor-pointer">
             {/* Top bar */}
             <span
-              className={`absolute top-0 right-0 h-0.5 bg-lime-600 transition-all duration-300 ${
+              className={`absolute top-0 right-0 h-1 bg-lime-600 transition-all duration-300 ${
                 isOpen
                   ? 'rotate-45 top-2.5 left-0 right-0 w-6'
-                  : 'w-3 ml-auto top-0.5 right-2'
+                  : 'w-8 ml-auto top-0.5 right-0'
               }`}
             />
             {/* Middle bar */}
             <span
-              className={`absolute top-2.5 left-0 h-0.5 bg-lime-600 transition-all duration-300 ${
-                isOpen ? 'opacity-0' : 'w-6 -top-2.5'
+              className={`absolute top-2.5 left-0 h-1 bg-lime-600 transition-all duration-300 ${
+                isOpen ? 'opacity-0' : 'w-6 -top-2.5 left-2'
               }`}
             />
             {/* Bottom bar */}
             <span
-              className={`absolute bottom-0 left-0 h-0.5 bg-lime-600 transition-all duration-300 ${
+              className={`absolute bottom-0 left-0 h-1 bg-lime-600 transition-all duration-300 ${
                 isOpen
                   ? '-rotate-45 bottom-2.5 left-0 right-0 w-6'
-                  : 'w-3 mr-auto top-4.5'
+                  : 'w-4 mr-auto top-4.5 left-4'
               }`}
             />
           </div>

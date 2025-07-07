@@ -78,7 +78,7 @@ const Services = ({
   };
 
   return (
-    <section id='services' className="py-16 lg:py-24 bg-gray-50 font-sans">
+    <section id='services' className="py-16 lg:py-24 bg-teal-50 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-12">
@@ -100,7 +100,7 @@ const Services = ({
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               key={index}
-              className="relative bg-white rounded-xl shadow-lg p-8 overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              className="relative bg-teal-800 rounded-xl shadow-lg md:p-8 p-6 md:mx-auto mx-3 overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-teal-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               <div className="absolute inset-0 bg-gray-100 opacity-100 group-hover:opacity-0 transition-opacity duration-300 rounded-xl"></div>
 
@@ -120,16 +120,6 @@ const Services = ({
               <p className="relative z-10 text-gray-700 mb-6">
                 {service.description}
               </p>
-
-              {service.link && (
-                <a
-                  href={service.link}
-                  className="relative z-10 inline-flex items-center text-teal-600 font-semibold hover:text-teal-800 transition-colors duration-300"
-                >
-                  Learn More
-                  <ChevronRight className="w-5 h-5 ml-1 transform transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              )}
             </motion.div>
           ))}
         </div>
