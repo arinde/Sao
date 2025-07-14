@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 
 const defaultProjects = [
   {
-    imageUrl: 'https://placehold.co/600x400/94a3b8/e2e8f0?text=Grand+Bridge+Project',
-    title: "Coastal Landmark Bridge",
-    location: "Lagos, Nigeria",
-    year: 2023,
+    imageUrl: 'Images/Gallery28.jpeg',
+    title: "Furnace Pit Structure",
+    location: "Ogun, Nigeria",
+    year: 2024,
     description: "A pivotal infrastructure project connecting key urban areas, designed to enhance traffic flow and promote regional development.",
     status: "ongoing"
   },
   {
-    imageUrl: 'https://placehold.co/600x400/64748b/e2e8f0?text=New+Office+Complex',
+    imageUrl: '/Images/Gallery6.jpeg',
     title: "Apex Corporate Towers",
     location: "Abuja, Nigeria",
     year: 2022,

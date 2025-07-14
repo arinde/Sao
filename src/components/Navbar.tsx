@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           <Link to="/" ><p className="hover:text-lime-600 font-medium cursor-pointer">Home</p></Link>
           <a href='#services' className="hover:text-lime-600 font-medium cursor-pointer">Our Services</a>
           <Link to="/projects"><p className="hover:text-lime-600 font-medium cursor-pointer">Projects</p></Link>
-          <Link to="/blog" ><p className="hover:text-lime-600 font-medium cursor-pointer">Blogs</p></Link>
+          <Link to="/gallery" ><p className="hover:text-lime-600 font-medium cursor-pointer">Gallery</p></Link>
           
         </div>
         <div 
@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
             <Link to='/'><p onClick={toggleMenu} className="block hover:text-lime-600 mt-5 ml-4 font-serif font-medium text-lg">Home</p></Link>
            <a href='#services' onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Our Services</a>
             <Link to='/projects'><p onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Projects</p></Link>
-            <Link to='/blog'><p onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Blogs</p></Link>
+            <Link to='/gallery'><p onClick={toggleMenu} className="block hover:text-lime-600 font-serif ml-4 font-medium text-lg">Gallery</p></Link>
           </div>
           <div>
             <Button

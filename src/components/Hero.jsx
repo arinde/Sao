@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Hero = ({
   imageUrls = [
-    '/image5.jfif',
+    '/Images/Gallery6.jpeg',
     '/image2.jfif',
     '/image3.jfif',
-    '/image4.jfif'
+    '/image4.jfif',
+    '/Images/Gallery11.jpeg'
   ],
   headline = "Building Tomorrow's Infrastructure, Today.",
   subheading = "Precision Engineering, Sustainable Solutions, Unwavering Commitment.",

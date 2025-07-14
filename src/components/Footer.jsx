@@ -89,7 +89,7 @@ const Footer = () => {
           <motion.div variants={columnVariants}>
             <h4 className="text-xl font-semibold text-white mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <motion.li variants={linkItemVariants}><a href="#" className="hover:text-teal-500 transition-colors duration-200">Home</a></motion.li>
+              <motion.li variants={linkItemVariants}><Link to="/" className="hover:text-teal-500 transition-colors duration-200">Home</Link></motion.li>
               <motion.li variants={linkItemVariants}><a href="#about" className="hover:text-teal-500 transition-colors duration-200">About Us</a></motion.li>
               <motion.li variants={linkItemVariants}><a href="#services" className="hover:text-teal-500 transition-colors duration-200">Services</a></motion.li>
               <motion.li variants={linkItemVariants}><Link to="/projects" className="hover:text-teal-500 transition-colors duration-200">Projects</Link></motion.li>

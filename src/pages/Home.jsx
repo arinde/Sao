@@ -6,6 +6,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import OurCeo from '../components/OurCeo';
 import FAQ from '../components/FAQ';
 import Testimonial from '../components/Testimonial';
+import GalleryReveal from '../components/Gallery';
 
 const Home = () => {
     return (
@@ -14,10 +15,12 @@ const Home = () => {
             <About />
             <Services />
             <Project />
+            <GalleryReveal />
             <WhyChooseUs />
             <OurCeo />
             <FAQ />
             <Testimonial />
+            
         </div>
     );
 }
