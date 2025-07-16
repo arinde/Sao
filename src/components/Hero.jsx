@@ -55,7 +55,7 @@ const Hero = ({
   }, [imageUrls.length]);
 
   return (
-    <section className="relative min-h-[60vh] lg:min-h-screen flex items-center justify-center text-center overflow-hidden py-12 pt-28">
+    <section className="relative min-h-[72vh] lg:min-h-screen flex items-center justify-center text-center overflow-hidden py-12 pt-28">
       {imageUrls.map((imageUrl, index) => (
         <div
           key={index}
