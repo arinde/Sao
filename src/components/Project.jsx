@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion'; // Import motion and useInView
+import { motion, useInView } from 'framer-motion';
 import { MapPin, CalendarDays, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 

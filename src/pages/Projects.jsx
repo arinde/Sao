@@ -4,84 +4,63 @@ import React, { useState } from 'react';
 
 const defaultProjects = [
   {
-    imageUrl: '/image2.jfif',
-    title: "Coastal Landmark Bridge",
-    location: "Lagos, Nigeria",
-    year: 2023,
+    imageUrl: '/Images/Gallery22.jpeg',
+    title: "Furnace Pit structure 1",
+    location: "RCPL Ogun, Nigeria",
+    year: 2025,
     description: "A pivotal infrastructure project connecting key urban areas, designed to enhance traffic flow and promote regional development.",
     detailsLink: "#",
-    category: "Infrastructure",
-    status: "ongoing" 
-  },
-  {
-    imageUrl: '/image3.jfif',
-    title: "Apex Corporate Towers",
-    location: "Abuja, Nigeria",
-    year: 2022,
-    description: "Construction of a state-of-the-art commercial complex featuring sustainable design and modern amenities for leading businesses.",
-    detailsLink: "#",
-    category: "Commercial",
+    category: "Industrial",
     status: "completed" 
   },
   {
-    imageUrl: '/image4.jfif',
-    title: "Mega-Factory Expansion",
-    location: "Ogun State, Nigeria",
-    year: 2024,
+    imageUrl: '/Images/Gallery6.jpeg',
+    title: "Silicate Laboratory Building",
+    location: "Sil chemicals, Ogun",
+    year: 2025,
+    description: "Construction of a state-of-the-art commercial complex featuring sustainable design and modern amenities for leading businesses.",
+    detailsLink: "#",
+    category: "Industrial",
+    status: "ongoing" 
+  },
+  {
+    imageUrl: '/Images/Gallery20.jpeg',
+    title: "Furnace Pit structure 2 RCPL",
+    location: "RCPL, Ogun",
+    year: 2025,
     description: "Expansive industrial facility project, including specialized foundations and an advanced furnace pit, built to rigorous international standards.",
+    detailsLink: "#",
+    category: "Industrial",
+    status: "completed"
+  },
+  {
+    imageUrl: '/Images/Gallery18.jpeg',
+    title: "Engineering store office RCPL",
+    location: "Ogun, Nigeria",
+    year: 2024,
+    description: "Development of an eco-friendly residential community featuring sustainable materials and energy-efficient designs.",
+    detailsLink: "#",
+    category: "Industrial",
+    status: "completed"
+  },
+  {
+    imageUrl: '/Images/Gallery12.jpeg',
+    title: "Furnace Pit structure 3 RCPL",
+    location: "RCPL, Ogun",
+    year: 2025,
+    description: "Implementation of comprehensive hydraulic structures and water management solutions to protect urban areas from seasonal flooding.",
     detailsLink: "#",
     category: "Industrial",
     status: "ongoing"
   },
   {
-    imageUrl: '/image5.jfif',
-    title: "Green Harmony Residences",
-    location: "Ibadan, Nigeria",
-    year: 2023,
-    description: "Development of an eco-friendly residential community featuring sustainable materials and energy-efficient designs.",
-    detailsLink: "#",
-    category: "Residential",
-    status: "completed"
-  },
-  {
-    imageUrl: '/image2.jfif',
-    title: "Urban Flood Defense System",
-    location: "Port Harcourt, Nigeria",
-    year: 2021,
-    description: "Implementation of comprehensive hydraulic structures and water management solutions to protect urban areas from seasonal flooding.",
-    detailsLink: "#",
-    category: "Water Management",
-    status: "ongoing"
-  },
-  {
-    imageUrl: '/image5.jfif',
+    imageUrl: '/Images/Gallery22.jpeg',
     title: "National Highway Upgrade",
-    location: "Across Nigeria",
+    location: "RCPL, Ogun",
     year: 2020,
     description: "Extensive renovation and expansion of key national highway sections, improving connectivity and reducing travel times.",
     detailsLink: "#",
     category: "Infrastructure",
-    status: "completed"
-  },
-  
-  {
-    imageUrl: '/image2.jfif', 
-    title: "International Airport Terminal",
-    location: "Lagos, Nigeria",
-    year: 2025,
-    description: "Development of a new state-of-the-art terminal to expand capacity and enhance passenger experience.",
-    detailsLink: "#",
-    category: "Infrastructure",
-    status: "ongoing"
-  },
-  {
-    imageUrl: '/image4.jfif', 
-    title: "Solar Power Plant Installation",
-    location: "Kano, Nigeria",
-    year: 2024,
-    description: "Construction of a large-scale solar power generation facility contributing to Nigeria's renewable energy goals.",
-    detailsLink: "#",
-    category: "Sustainable",
     status: "completed"
   },
 ];
