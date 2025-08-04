@@ -15,7 +15,7 @@ const defaultTeamMembers = [
     }
   },
   {
-    imageUrl: 'https://placehold.co/400x400/94a3b8/e2e8f0?text=Jane+Smith',
+    imageUrl: 'https://placehold.co/400x400/94a3b8/e2e8f0?text=Oladimeji+Agatha',
     name: "Oladimeji Agatha",
     title: "Chief Operations Officer",
     bio: "Agatha oversees all operational aspects, optimizing workflows and ensuring seamless execution across our diverse portfolio of construction projects.",
@@ -27,7 +27,7 @@ const defaultTeamMembers = [
     }
   },
   {
-    imageUrl: 'https://placehold.co/400x400/64748b/e2e8f0?text=Mike+Johnson',
+    imageUrl: 'https://placehold.co/400x400/64748b/e2e8f0?text=Oladimeji+Chigozirim',
     name: "Oladimeji Chigozirim",
     title: "Head of Project Management",
     bio: "Chigozirim is a certified PMP with a proven track record of delivering large-scale infrastructure projects on time and within budget.",
