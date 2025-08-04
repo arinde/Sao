@@ -6,27 +6,27 @@ import { useNavigate } from 'react-router-dom';
 const defaultProjects = [
   {
     imageUrl: 'Images/Gallery28.jpeg',
-    title: "Furnace Pit Structure",
+    title: "Furnace 1 Pit Structure",
     location: "Ogun, Nigeria",
-    year: 2024,
-    description: "A pivotal infrastructure project connecting key urban areas, designed to enhance traffic flow and promote regional development.",
-    status: "ongoing"
-  },
-  {
-    imageUrl: '/Images/Gallery6.jpeg',
-    title: "Apex Corporate Towers",
-    location: "Abuja, Nigeria",
-    year: 2022,
-    description: "Construction of a state-of-the-art commercial complex featuring sustainable design and modern amenities for leading businesses.",
+    year: 2025,
+    description: "Constructed a reinforced furnace pit structure with high-grade materials, ensuring durability, safety, and compliance with industrial standards",
     status: "completed"
   },
   {
-    imageUrl: 'https://placehold.co/600x400/334155/e2e8f0?text=Industrial+Plant',
-    title: "Mega-Factory Expansion",
+    imageUrl: '/Images2/FloorMarking2.jpeg',
+    title: "Floor Marking Unilever",
+    location: "Ogun, Nigeria",
+    year: 2024,
+    description: "Applied durable, high visilbilty floor markings to improve safety, traffic control, and operational efficiency in industrial enviroments",
+    status: "completed"
+  },
+  {
+    imageUrl: '/Images2/Demolition.jpeg',
+    title: "Demolition Work Unilever",
     location: "Ogun State, Nigeria",
     year: 2024,
-    description: "Expansive industrial facility project, including specialized foundations and an advanced furnace pit, built to rigorous international standards.",
-    status: "ongoing"
+    description: "Executed controlled demolition using advanced equipment, ensuring safety, minimal disruption and compliance with enviromental regulations.",
+    status: "completed"
   },
   {
     imageUrl: 'https://placehold.co/600x400/0f766e/f1f5f9?text=Eco-Residences',
@@ -115,7 +115,7 @@ const Project = ({
             <motion.div
               key={index}
               className="bg-gray-50 rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
-              variants={cardVariants} // Apply item variants to each card
+              variants={cardVariants}
               whileHover={{ scale: 1.03, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }} // Enhanced hover effect
             >
               <div className="w-full h-64 md:h-72 overflow-hidden">
@@ -143,7 +143,7 @@ const Project = ({
                   </span>
                 </div>
 
-                <p className="text-gray-700 mb-6 line-clamp-3">
+                <p className="text-gray-700 mb-6 ">
                   {project.description}
                 </p>
               </div>

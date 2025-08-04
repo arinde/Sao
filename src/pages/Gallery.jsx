@@ -1,35 +1,62 @@
 import React, { useState } from 'react';
 
 const galleryImages = [
-  { src: '/Images/Gallery8.jpeg', title: 'Steel Framework Installation' },
-  { src: '/Images/Gallery1.jpeg', title: 'Pipeline Welding Project' },
-  { src: '/Images/Gallery2.jpeg', title: 'Heavy Equipment in Operation' },
-  { src: '/Images/Gallery3.jpeg', title: 'Scaffolding & Labour Setup' },
-  { src: '/Images/Gallery4.jpeg', title: 'Industrial Painting Work' },
-  { src: '/Images/Gallery5.jpeg', title: 'Mechanical Assembly Unit' },
-  { src: '/Images/Gallery6.jpeg', title: 'On-site Steel Work' },
-  { src: '/Images/Gallery7.jpeg', title: 'Fabrication & Welding' },
-  { src: '/Images/Gallery8.jpeg', title: 'Team Inspection Activity' },
-  { src: '/Images/Gallery9.jpeg', title: 'Cranes & Equipment Operation' },
-  { src: '/Images/Gallery10.jpeg', title: 'Warehouse & Logistics' },
-  { src: '/Images/Gallery11.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery12.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery13.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery14.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery15.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery16.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery17.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery18.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery19.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery20.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery21.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery22.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery23.jpeg', title: 'Project Completion Stage' },
-   { src: '/Images/Gallery24.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery25.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery26.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery27.jpeg', title: 'Project Completion Stage' },
-  { src: '/Images/Gallery27.jpeg', title: 'Project Completion Stage' },
+  { src: '/Images2/CastingRCPL.jpeg', title: 'Casting area preparation'},
+  { src: '/Images2/CastingRCPL2.jpeg', title: 'Casting area preparation'},
+  { src: '/Images2/Column.jpeg', title: 'Stop column base'},
+   { src: '/Images/Gallery23.jpeg', title: 'Furnace Pit structure' },
+  { src: '/Images/Gallery17.jpeg', title: 'Casting of furnace wall' },
+  { src: '/Images/Gallery13.jpeg', title: 'Casted base for chimney structure' },
+  { src: '/Images/Gallery21.jpeg', title: 'Casted furncace regenerator' },
+  { src: '/Images/Gallery1.jpeg', title: 'Casting of furnace wall' },
+  { src: '/Images/Gallery6.jpeg', title: 'Casted Columns' },
+  { src: '/Images/Gallery3.jpeg', title: 'Casting board Setup' },
+  { src: '/Images/Gallery4.jpeg', title: 'Setting of iron rod for columns' },
+  { src: '/Images/Gallery2.jpeg', title: 'Onsite Iron works' },
+  { src: '/Images/Gallery20.jpeg', title: 'Onsite Iron works' },
+  { src: '/Images/Gallery11.jpeg', title: 'Setting of iron for furnace base' },
+  { src: '/Images/Gallery26.jpeg', title: 'Setting of iron for furnace base' },
+  { src: '/Images/Gallery10.jpeg', title: 'Onsite Iron works' },
+  { src: '/Images2/CNG.jpeg', title: 'Concrete blast wall'},
+
+  { src: '/Images2/FloorMarking1.jpeg', title: 'Floor marking'},
+  { src: '/Images2/FloorMarking2.jpeg', title: 'Floor marking'},
+  { src: '/Images2/FloorPainting3.jpeg', title: 'Floor marking'},
+  { src: '/Images2/Epoxyl.jpeg', title: 'Expoxyl flooring'},
+  { src: '/Images2/Painting.jpeg', title: 'Painting'},
+
+  { src: '/Images/Gallery7.jpeg', title: 'Interlocking' },
+  { src: '/Images/Gallery12.jpeg', title: 'Interlocking' },
+  { src: '/Images/Gallery27.jpeg', title: 'Interlocking' },
+
+  { src: '/Images2/Drainage.jpeg', title: 'Drainage Cover'},
+  { src: '/Images2/Drainage2.jpeg', title: 'Drainage Cover'},
+  { src: '/Images/Gallery25.jpeg', title: 'Drainage works' },
+  
+  
+
+  
+  { src: '/Images2/Hydrant.jpeg', title: 'CNG station'},
+  { src: '/Images2/Hydrant2.jpeg', title: 'CNG station'},
+  { src: '/Images2/IndianSchool.jpeg', title: 'Indian school building'},
+  
+  { src: '/Images/Gallery14.jpeg', title: 'Skeleton structure for the aluminum partion' },
+  { src: '/Images/Gallery8.jpeg', title: 'Office Partioning with aluminum' },
+  { src: '/Images/Gallery8.jpeg', title: 'Office Partioning with aluminum' },
+  { src: '/Images/Gallery19.jpeg', title: 'Office Partioning with aluminum' },
+
+  { src: '/Images/Gallery5.jpeg', title: 'Installation of Suspended Ceiling' }, 
+
+  { src: '/Images/Gallery9.jpeg', title: 'Excavation' },
+  { src: '/Images2/Excavation.jpeg', title: 'Excavation'},
+  { src: '/Images2/Excavation2.jpeg', title: 'Excavation'},
+  
+  { src: '/Images/Gallery16.jpeg', title: 'Insatallation of suspended ceiling' },
+
+  { src: '/Images/Gallery24.jpeg', title: 'MCC room block setting' },
+  { src: '/Images/Gallery18.jpeg', title: 'MCC room block setting' },
+ 
+  { src: '/Images/Gallery22.jpeg', title: 'Tiling' },
 ];
 
 const GalleryImage = ({ src, title }) => {

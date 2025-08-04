@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 
 const defaultProjects = [
   {
-    imageUrl: '/Images/Gallery22.jpeg',
+    imageUrl: '/Images/Gallery23.jpeg',
     title: "Furnace Pit structure 1",
     location: "RCPL Ogun, Nigeria",
     year: 2025,
-    description: "A pivotal infrastructure project connecting key urban areas, designed to enhance traffic flow and promote regional development.",
+    description: "Constructed a reinforced furnace pit structure with high-grade materials, ensuring durability, safety, and compliance with industrial standards.",
     detailsLink: "#",
     category: "Industrial",
     status: "completed" 
@@ -34,43 +34,72 @@ const defaultProjects = [
     status: "completed"
   },
   {
-    imageUrl: '/Images/Gallery18.jpeg',
-    title: "Engineering store office RCPL",
-    location: "Ogun, Nigeria",
-    year: 2024,
-    description: "Development of an eco-friendly residential community featuring sustainable materials and energy-efficient designs.",
-    detailsLink: "#",
-    category: "Industrial",
-    status: "completed"
-  },
-  {
-    imageUrl: '/Images/Gallery12.jpeg',
-    title: "Furnace Pit structure 3 RCPL",
+    imageUrl: '/Images/Gallery24.jpeg',
+    title: "Construction of MCC building",
     location: "RCPL, Ogun",
     year: 2025,
-    description: "Implementation of comprehensive hydraulic structures and water management solutions to protect urban areas from seasonal flooding.",
+    description: "Built a modern control room facility with reinforced structure, ensuring safety functionality, and optimal space for operational monitoring.",
     detailsLink: "#",
     category: "Industrial",
     status: "ongoing"
   },
   {
-    imageUrl: '/Images/Gallery22.jpeg',
-    title: "National Highway Upgrade",
+    imageUrl: '/Images2/Excavation2.jpeg',
+    title: "Furnace Pit structure 3 RCPL",
     location: "RCPL, Ogun",
-    year: 2020,
-    description: "Extensive renovation and expansion of key national highway sections, improving connectivity and reducing travel times.",
+    year: 2025,
+    description: "Expansive industrial facility project, including specialized foundations and an advanced furnace pit, built to rigorous international standards.",
+    detailsLink: "#",
+    category: "Industrial",
+    status: "ongoing"
+  },
+  {
+    imageUrl: '/Images2/FloorMarking2.jpeg',
+    title: "Floor Marking",
+    location: "Unilever, Ogun",
+    year: 2024,
+    description: "Applied durable, high visilbilty floor markings to improve safety, traffic control, and operational efficiency in industrial enviroments.",
     detailsLink: "#",
     category: "Infrastructure",
     status: "completed"
   },
+  {
+    imageUrl: '/Images2/Demolition.jpeg',
+    title: "Demolition Work",
+    location: "Unilever, Ogun",
+    year: 2024,
+    description: "Executed controlled demolition using advanced equipment, ensuring safety, minimal disruption and compliance with enviromental regulations.",
+    detailsLink: "#",
+    category: "Infrastructure",
+    status: "completed"
+  },
+  {
+    imageUrl: '/Images2/IndianSchool.jpeg',
+    title: "Building Construction",
+    location: "Indian School, Lagos",
+    year: 2024,
+    description: "Constucted a modern school building with durable materials, ensuring safety, functionality, and a conducive learning enviroment for students.",
+    detailsLink: "#",
+    category: "Infrastructure",
+    status: "completed"
+  },
+  {
+    imageUrl: '/Images2/Epoxyl.jpeg',
+    title: "Epoxyl Flooring",
+    location: "Unilever, Ogun",
+    year: 2024,
+    description: "Intsalled high quality epoxyl flooring, providing a durable, and chemical resistant surface ideal for industrial and commercial applications.",
+    detailsLink: "#",
+    category: "Infrastructure",
+    status: "completed"
+  },
+  
 ];
 
 const Projects = ({
   projects = defaultProjects,
   sectionTitle = "Our Landmark Projects",
   sectionSubtitle = "Witness the impact of our engineering prowess through a selection of our most significant and innovative constructions.",
-  ctaText = "View All Projects",
-  onCtaClick = () => console.log("View All Projects clicked!")
 }) => {
  
   const [activeFilter, setActiveFilter] = useState('all');
@@ -180,15 +209,6 @@ const Projects = ({
               No projects found for this category.
             </div>
           )}
-        </div>
-
-        <div className="text-center mt-16">
-          <button
-            onClick={onCtaClick}
-            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-300 transform hover:scale-[1.02]"
-          >
-            {ctaText}
-          </button>
         </div>
       </div>
     </section>

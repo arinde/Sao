@@ -20,7 +20,7 @@ const Home = () => {
             <OurCeo />
             <FAQ />
             <Testimonial />
-            
+           
         </div>
     );
 }

@@ -6,6 +6,7 @@ import GalleryPage from './pages/Gallery';
 import Home from './pages/Home'
 import Projects from './pages/Projects';
 import Team from './pages/Team';
+import WhatsAppFAB from './components/WhatsappFAB';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/gallery' element={<GalleryPage />} />
       </Routes>
     <Footer />
+    <WhatsAppFAB />
     </BrowserRouter>
   )
 }

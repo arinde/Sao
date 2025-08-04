@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const OurCeo = ({
-  ceoImageUrl = 'https://placehold.co/400x400/a3a3a3/e2e8f0?text=CEO+Image', 
-  ceoName = "Engr Sao",
+  ceoImageUrl = '/Images2/sao.jpeg', 
+  ceoName = "Engr Oladimeji Adegboyega Olusegun",
   ceoTitle = "CEO & Founder",
   ceoQuote = "“Building a sustainable future requires not just engineering prowess, but a deep commitment to our communities and the environment.”",
   ctaText = "Meet Our Entire Team",

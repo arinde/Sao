@@ -3,71 +3,41 @@ import { Linkedin, Twitter, Globe, Mail } from 'lucide-react';
 
 const defaultTeamMembers = [
   {
-    imageUrl: 'https://placehold.co/400x400/a3a3a3/e2e8f0?text=John+Doe',
-    name: "John Doe",
+    imageUrl: '/Images2/sao.jpeg',
+    name: "Engr Oladimeji Adegboyega Olusegun",
     title: "CEO & Lead Civil Engineer",
-    bio: "With over 25 years in the industry, John leads our strategic vision, ensuring every project aligns with our commitment to excellence and innovation.",
+    bio: "With over 25 years in the industry, Sao leads our strategic vision, ensuring every project aligns with our commitment to excellence and innovation.",
     social: {
       linkedin: "#",
       twitter: "#",
-      website: "#",
-      email: "mailto:john.doe@example.com"
+      website: "www.saoworksngltd.com",
+      email: "mailto:saoworksngltd@gmail.com"
     }
   },
   {
     imageUrl: 'https://placehold.co/400x400/94a3b8/e2e8f0?text=Jane+Smith',
-    name: "Jane Smith",
+    name: "Oladimeji Agatha",
     title: "Chief Operations Officer",
-    bio: "Jane oversees all operational aspects, optimizing workflows and ensuring seamless execution across our diverse portfolio of construction projects.",
+    bio: "Agatha oversees all operational aspects, optimizing workflows and ensuring seamless execution across our diverse portfolio of construction projects.",
     social: {
       linkedin: "#",
       twitter: "#",
       website: "#",
-      email: "mailto:jane.smith@example.com"
+      email: "mailto:saoworksngltd@gmail.com"
     }
   },
   {
     imageUrl: 'https://placehold.co/400x400/64748b/e2e8f0?text=Mike+Johnson',
-    name: "Michael Johnson",
+    name: "Oladimeji Chigozirim",
     title: "Head of Project Management",
-    bio: "Michael is a certified PMP with a proven track record of delivering large-scale infrastructure projects on time and within budget.",
+    bio: "Chigozirim is a certified PMP with a proven track record of delivering large-scale infrastructure projects on time and within budget.",
     social: {
       linkedin: "#",
       twitter: "#",
-      email: "mailto:michael.j@example.com"
+      email: "mailto:saoworksngltd@gmail.com"
     }
   },
-  {
-    imageUrl: 'https://placehold.co/400x400/334155/e2e8f0?text=Sarah+Williams',
-    name: "Sarah Williams",
-    title: "Lead Structural Engineer",
-    bio: "Sarah's expertise in structural design ensures the integrity and resilience of every building we construct, pushing boundaries with innovative solutions.",
-    social: {
-      linkedin: "#",
-      email: "mailto:sarah.w@example.com"
-    }
-  },
-  {
-    imageUrl: 'https://placehold.co/400x400/0f766e/f1f5f9?text=David+Brown',
-    name: "David Brown",
-    title: "Sustainability Lead",
-    bio: "David champions our green initiatives, integrating sustainable practices and materials to minimize environmental impact across all our developments.",
-    social: {
-      linkedin: "#",
-      twitter: "#",
-      website: "#"
-    }
-  },
-  {
-    imageUrl: 'https://placehold.co/400x400/4d7c0f/f1f5f9?text=Emily+Davis',
-    name: "Emily Davis",
-    title: "Client Relations Manager",
-    bio: "Emily is dedicated to fostering strong client relationships, ensuring transparent communication and tailored solutions from project inception to completion.",
-    social: {
-      linkedin: "#",
-      email: "mailto:emily.d@example.com"
-    }
-  }
+  
 ];
 
 
