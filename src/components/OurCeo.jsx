@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const OurCeo = ({
   ceoImageUrl = '/Images2/sao.jpeg', 
-  ceoName = "Engr Oladimeji Adegboyega Olusegun",
+  ceoName = "Oladimeji Adegboyega Olusegun",
   ceoTitle = "CEO & Founder",
   ceoQuote = "“Building a sustainable future requires not just engineering prowess, but a deep commitment to our communities and the environment.”",
   ctaText = "Meet Our Entire Team",
