@@ -40,10 +40,10 @@ const trustBadges = [
 ];
 
 const stats = [
-  { label: "Projects Completed", value: 250, suffix: "+" },
+  { label: "Projects Completed", value: 20, suffix: "+" },
   { label: "Years of Experience", value: 15, suffix: "+" },
-  { label: "Satisfied Clients", value: 180, suffix: "+" },
-  { label: "Team Members", value: 75, suffix: "+" },
+  { label: "Satisfied Clients", value: 10, suffix: "+" },
+  { label: "Team Members", value: 20, suffix: "+" },
 ];
 
 const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }) => {

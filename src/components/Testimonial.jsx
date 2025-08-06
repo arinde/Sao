@@ -4,28 +4,28 @@ import { Quote } from 'lucide-react';
 
 const defaultTestimonials = [
   {
-    quote: "Our experience with Sao Works on the new bridge project was exceptional. Their precision engineering and commitment to deadlines were truly impressive. A reliable partner for complex infrastructure.",
+    quote: "Our experience with Sao Works on the the new furnace project was exceptional. Their precision engineering and commitment to deadlines were truly impressive. A reliable partner for complex infrastructure.",
     clientName: "Mr Prassana",
     clientTitle: "GM Reliance Chemical Products Limited Agbara",
-    clientAvatarUrl: "https://placehold.co/100x100/e0e0e0/333?text=AB"
+    clientAvatarUrl: "https://placehold.co/100x100/e0e0e0/333?text=RCPL"
   },
   {
-    quote: "The industrial facility they built for us exceeded all expectations. The attention to detail, especially with the specialized furnace pit, demonstrated their deep understanding of industrial standards. Highly recommended!",
-    clientName: "Dr. Emeka Okoro",
-    clientTitle: "Operations Director, MegaCorp Industries",
-    clientAvatarUrl: "https://placehold.co/100x100/d0d0d0/333?text=EO"
+    quote: "Mr Sao is a versatile engineer and has great eyes for deatils, he is the goto person for projects that seems impossible, they demonstrated their deep understanding of industrial standards. Highly recommended!",
+    clientName: "Project Manager ",
+    clientTitle: "Unilever Nigeria Plc Agbara",
+    clientAvatarUrl: "https://placehold.co/100x100/d0d0d0/333?text=PM"
   },
   {
     quote: "Their sustainable building approach for our commercial complex was truly innovative. Not only is the structure aesthetically pleasing, but its energy efficiency has also significantly reduced our operational costs.",
-    clientName: "Chief Bola Adeyemi",
-    clientTitle: "CEO, GreenFuture Holdings",
-    clientAvatarUrl: "https://placehold.co/100x100/c0c0c0/333?text=BA"
+    clientName: "Site Manager",
+    clientTitle: "Ugee Chemicals Agbara",
+    clientAvatarUrl: "https://placehold.co/100x100/c0c0c0/333?text=SM"
   },
   {
     quote: "From initial consultation to project handover, SAO demonstrated unparalleled professionalism and technical expertise. They transformed our vision into a tangible reality with seamless execution.",
-    clientName: "Mr. Kunle Davies",
-    clientTitle: "Residential Developer",
-    clientAvatarUrl: "https://placehold.co/100x100/b0b0b0/333?text=KD"
+    clientName: "Mr. Sandeep",
+    clientTitle: "Project Manager Silicate plant RCPL",
+    clientAvatarUrl: "https://placehold.co/100x100/b0b0b0/333?text=SA"
   },
 ];
 const Testimonial = ({

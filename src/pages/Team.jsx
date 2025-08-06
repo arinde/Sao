@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Globe, Mail } from 'lucide-react';
 
 const defaultTeamMembers = [
   {
-    imageUrl: '/Images2/sao.jpeg',
+    imageUrl: '/Team/Sao.jpeg',
     name: "Engr Oladimeji Adegboyega Olusegun",
     title: "CEO & Lead Civil Engineer",
     bio: "With over 25 years in the industry, Sao leads our strategic vision, ensuring every project aligns with our commitment to excellence and innovation.",
@@ -15,7 +15,7 @@ const defaultTeamMembers = [
     }
   },
   {
-    imageUrl: 'https://placehold.co/400x400/94a3b8/e2e8f0?text=Oladimeji+Agatha',
+    imageUrl: '/Team/Sao2.jpg',
     name: "Oladimeji Agatha",
     title: "Chief Operations Officer",
     bio: "Agatha oversees all operational aspects, optimizing workflows and ensuring seamless execution across our diverse portfolio of construction projects.",
@@ -27,7 +27,7 @@ const defaultTeamMembers = [
     }
   },
   {
-    imageUrl: 'https://placehold.co/400x400/64748b/e2e8f0?text=Oladimeji+Chigozirim',
+    imageUrl: '/Team/Sao3.jpg',
     name: "Oladimeji Chigozirim",
     title: "Head of Project Management",
     bio: "Chigozirim is a certified PMP with a proven track record of delivering large-scale infrastructure projects on time and within budget.",
@@ -67,7 +67,7 @@ const Team = ({
             >
               <div className="w-full h-64 md:h-72 overflow-hidden">
                 <img
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110  group-hover:grayscale-0"
                   src={member.imageUrl}
                   alt={member.name}
                   onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400/a3a3a3/e2e8f0?text=Image+Not+Found'; }} // Fallback

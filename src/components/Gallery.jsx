@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   { src: '/Images/Gallery11.jpeg', title: 'Setting of iron rod' },
-  { src: '/Images/Gallery2.jpeg', title: 'Columns setting for furnace beam' },
+  { src: '/Images2/Painting.jpeg', title: 'Columns setting for furnace beam' },
   { src: '/Images/Gallery7.jpeg', title: 'Interlocking of walkway' },
   { src: '/Images/Gallery8.jpeg', title: 'Aluminum Partitioning Installation' },
   { src: '/Images/Gallery5.jpeg', title: 'Suspended Ceiling Installation' },

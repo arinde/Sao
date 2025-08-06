@@ -14,7 +14,7 @@ const defaultProjects = [
     status: "completed" 
   },
   {
-    imageUrl: '/Images/Gallery6.jpeg',
+    imageUrl: '/Team/Lab.jpeg',
     title: "Silicate Laboratory Building",
     location: "Sil chemicals, Ogun",
     year: 2025,

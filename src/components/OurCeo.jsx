@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const OurCeo = ({
-  ceoImageUrl = '/Images2/sao.jpeg', 
+  ceoImageUrl = '/Team/Sao.jpeg', 
   ceoName = "Oladimeji Adegboyega Olusegun",
   ceoTitle = "CEO & Founder",
   ceoQuote = "“Building a sustainable future requires not just engineering prowess, but a deep commitment to our communities and the environment.”",
