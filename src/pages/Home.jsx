@@ -7,6 +7,7 @@ import OurCeo from '../components/OurCeo';
 import FAQ from '../components/FAQ';
 import Testimonial from '../components/Testimonial';
 import GalleryReveal from '../components/Gallery';
+import VideoModal from '../components/Modal';
 
 const Home = () => {
     return (
@@ -20,7 +21,7 @@ const Home = () => {
             <OurCeo />
             <FAQ />
             <Testimonial />
-           
+           <VideoModal />
         </div>
     );
 }
